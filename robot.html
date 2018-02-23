@@ -17,40 +17,43 @@
 </head>
 <body>
   <div class="container" ng-app="robots" ng-controller="RobotsController">
-    <div class="row" style="margin:4px;">
+    <div class="row main-row">
       <div class="col-sm-6">
-          <form action="">
+          <form>
             <div class="form-group row">
                 <div class="col-sm-8">
                   <label for="Robot type">Robot type:</label>
-                  <select class="form-control input-lg" placeholder="Robot Type" ng-model="type" ng-options="x for x in robotType"></select>
+                  <select class="form-control input-lg" ng-model="type" ng-options="x for x in robotType">
+                    <option value="" selected>Select...</option>
+                  </select>
               </div>
             </div>
             <div class="form-group row">
               <div class="col-sm-8">
                 <label for="Robot type">Robot Color:</label>
-                <select class="form-control input-lg" placeholder="Robot Color" ng-model="color" ng-options="y for y in robotColor"></select>
+                <select class="form-control input-lg" placeholder="Robot Color" ng-model="color" ng-options="y for y in robotColor">
+                  <option value="" selected>Select...</option>
+                </select>
+
             </div>
             </div>
-            <button type="button" ng-click="buildMyBot(type, color);" class="btn btn-success">Build My Bot</button>
+            <button type="button" ng-click="buildMyBot(type, color);" class="btn btn-success btn-lg">Build My Bot</button>
             </form>
 
       </div>
       <div class="col-sm-6">
         <div ng-if = "robotTable && robotTable.length <= 0" class="flex-container">
-          <div>Add Some Robots</div>
+          <div class= "default-text">Add Some Robots</div>
         </div>
-        <div ng-if = "robotTable && robotTable.length > 0" class="flex-container">
-          <div>
+        <div ng-if = "robotTable && robotTable.length > 0" class="show-table">
+          <div  class="table-responsive">
             <table class="table table-bordered">
-  <tr ng-repeat="x in robotTable">
-    <td>{{ x.botType }}</td>
-    <td>{{ x.botColor }}</td>
-    <td><button ng-click="removeBot(x.botType, x.botColor, $index);">Remove</button></td>
-
-  </tr>
-</table>
-
+              <tr ng-repeat="x in robotTable">
+                  <td>{{ x.botType }}</td>
+                  <td>{{ x.botColor }}</td>
+                  <td><span class="removeBtn" ng-click="removeBot(x.botType, x.botColor, $index);">Remove</span></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

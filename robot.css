@@ -1,16 +1,49 @@
+*{
+  box-sizing: border-box;
+}
+
+.main-row{
+  margin: 20px auto;
+}
+
+.default-text{
+  font-size: 1.875em;
+}
+
 .flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color:#f0f0f5;
   max-width:400px;
-  height:300px;
+  min-height:300px;
 }
 
-.flex-container>div {
-  background-color: #f1f1f1;
-  color: #000000;
-  max-width: 200px;
-  height: 200px;
-  
+.show-table {
+background-color:#f0f0f5;
+  max-width:400px;
+  min-height:300px;
+  margin:4px;
+}
+
+.table-responsive{
+  width:350px;
+  margin :auto;
+}
+
+table{
+  margin-top: 10px;
+  border-collapse: separate;
+  border-spacing: 50px 0;
+}
+tr{
+  background-color: white;
+  }
+
+
+.removeBtn{
+    font-weight: 400;
+    color: #337ab7;
+    touch-action: manipulation;
+    cursor: pointer;
 }
